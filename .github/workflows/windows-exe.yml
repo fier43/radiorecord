@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Test Windows
+      - name: Create exe for Windows
         run: poetry run task installer
 
       # Uploads artifact
