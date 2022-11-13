@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "radiorecord"
+version = "0.1.0"
+description = ""
+authors = ["Gennadiy"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+tk = "^0.1.0"
+python-vlc = "^3.0.16120"
+requests = "^2.27.1"
+pyinstaller = "^5.6.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.10.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+radio = "radiorecord.radiorecord:main"
+
+[tool.taskipy.tasks]
+installer = """
+pyinstaller \
+--clean \
+--onefile \
+--windowed \
+--icon icon-radio.ico \
+radiorecord/radiorecord.py
+"""
